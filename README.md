@@ -14,7 +14,7 @@ Our users are people who want to create their invoices, that are ready to send o
 ### Wireframes
 
 [Invoice](https://imgur.com/pG0DE8m)
-
+[React Components](https://imgur.com/GMiDMBO)
 
 ## Time/Priority Matrix (UPDATE WHEN COMPLETE)
 | Component | Priority | Estimated Time | Actual Time |
