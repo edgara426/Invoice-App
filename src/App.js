@@ -27,10 +27,23 @@ function App() {
   // const [invoiceNumber, setInvoiceNumber] = useState('0')
   // const [invoiceDate, setInvoiceDate] = useState('12/17/2021')
   // const [sentDate, setSentDate] = useState('12/17/2021')
+  const [work, setWork] = useState({
+    description: '',
+    price: '',
+    amount: '',
+    total: 0
+  })
+  // const [description, setDescription] = useState('')
+  // const [price, setPrice] = useState('')
+  // const [amount, setAmount] = useState('')
+  // const [total, setTotal] = useState(0)
+  const [list, setList] = useState([])
 
   return (
-    <div className="App">
-      
+    <> 
+    <div>
+    {invoice ? (
+        <div className="App">
         <p>{companyInfo.companyName}</p> 
         <p>{companyInfo.companyAddress}</p>
         <p>{companyInfo.companyEmail}</p>
@@ -43,8 +56,26 @@ function App() {
         <p>{invoiceInfo.invoiceNumber}</p>
         <p>{invoiceInfo.invoiceDate}</p>
         <p>{invoiceInfo.sentDate}</p>
-     
-    </div>
+
+
+        <p>{work.description}</p>
+        <p>{work.price}</p>
+        <p>{work.amount}</p>
+        <p>{work.total}</p>
+        <p>{list}</p>
+
+        <button 
+        onClick={()=> setInvoice(false)}>
+          Edit Info
+        </button>
+        </div>
+      ): (
+        <div>
+          <h1>Edit section</h1>
+        </div>
+      )}
+      </div>
+    </> 
   );
 }
 
