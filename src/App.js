@@ -71,6 +71,7 @@ function App() {
         </div>
       ):(
         <div>
+          <h1>Edit section</h1>
           <article>
             <div>
               <label>CompanyName</label>
@@ -94,7 +95,30 @@ function App() {
               />
             </div>
           </article>
-          <h1>Edit section</h1>
+
+          <article>
+            <div>
+              <label>CompanyEmail</label>
+              <input
+                type="text"
+                name="text"
+                placeholder="CompanyEmail"
+                value={companyEmail}
+                onChange={(e) => setCompanyEmail(e.target.value)}
+              />
+            </div>
+
+            <div>
+              <label>CompanyPhone</label>
+              <input
+                type="text"
+                name="text"
+                placeholder="CompanyPhone"
+                value={companyPhone}
+                onChange={(e) => setCompanyPhone(e.target.value)}
+              />
+            </div>
+          </article>
           <button 
         onClick={()=> setInvoice(true)}>
           Preview Invoice
