@@ -119,6 +119,31 @@ function App() {
               />
             </div>
           </article>
+
+          <article>
+          
+          <div>
+              <label>ClientName</label>
+              <input
+                type="text"
+                name="text"
+                placeholder="clientName"
+                value={clientName}
+                onChange={(e) => setClientName(e.target.value)}
+              />
+            </div>
+
+            <div>
+              <label>ClientAddress</label>
+              <input
+                type="text"
+                name="text"
+                placeholder="clientAddress"
+                value={clientAddress}
+                onChange={(e) => setClientAddress(e.target.value)}
+              />
+            </div>
+          </article>
           <button 
         onClick={()=> setInvoice(true)}>
           Preview Invoice
