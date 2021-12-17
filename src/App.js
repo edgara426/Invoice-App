@@ -17,11 +17,16 @@ function App() {
     clientName: 'ClientName',
     clientAddress:  'ClientAddress'
   })
-  const [clientName, setClientName] = useState('Client Name')
-  const [clientAddress, setClientAddress] = useState('Client Address')
-  const [invoiceNumber, setInvoiceNumber] = useState('0')
-  const [invoiceDate, setInvoiceDate] = useState('12/17/2021')
-  const [sentDate, setSentDate] = useState('12/17/2021')
+  // const [clientName, setClientName] = useState('Client Name')
+  // const [clientAddress, setClientAddress] = useState('Client Address')
+  const [invoiceInfo, setInvoiceInfo] = useState({
+    invoiceNumber: '0',
+    invoiceDate: '12/17/2021',
+    sentDate: '12/17/2021'
+  })
+  // const [invoiceNumber, setInvoiceNumber] = useState('0')
+  // const [invoiceDate, setInvoiceDate] = useState('12/17/2021')
+  // const [sentDate, setSentDate] = useState('12/17/2021')
 
   return (
     <div className="App">
@@ -33,6 +38,11 @@ function App() {
 
         <p>{clientInfo.clientName}</p> 
         <p>{clientInfo.clientAddress}</p>
+
+
+        <p>{invoiceInfo.invoiceNumber}</p>
+        <p>{invoiceInfo.invoiceDate}</p>
+        <p>{invoiceInfo.sentDate}</p>
      
     </div>
   );
