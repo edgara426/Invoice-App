@@ -144,6 +144,41 @@ function App() {
               />
             </div>
           </article>
+
+          <article>
+          
+          <div>
+              <label>InvoiceNumber</label>
+              <input
+                type="text"
+                name="text"
+                placeholder="InvoiceNumber"
+                value={invoiceNumber}
+                onChange={(e) => setInvoiceNumber(e.target.value)}
+              />
+            </div>
+
+            <div>
+              <label>InvoiceDate</label>
+              <input
+                type="text"
+                name="text"
+                placeholder="invoiceDate"
+                value={invoiceDate}
+                onChange={(e) => setInvoiceDate(e.target.value)}
+              />
+            </div>
+            <div>
+              <label>SentDate</label>
+              <input
+                type="text"
+                name="text"
+                placeholder="sentDate"
+                value={sentDate}
+                onChange={(e) => setSentDate(e.target.value)}
+              />
+            </div>
+          </article>
           <button 
         onClick={()=> setInvoice(true)}>
           Preview Invoice
