@@ -1,4 +1,4 @@
-import './App.css';
+// import './App.css';
 import { useState } from 'react';
 
 function App() {
@@ -8,6 +8,8 @@ function App() {
   const [companyAddress, setCompanyAddress] = useState('Company Address')
   const [companyEmail, setCompanyEmail] = useState('Company Email')
   const [companyPhone,setCompanyPhone] =useState('Company Phone #')
+  const [clientName, setClientName] = useState('Client Name')
+  const [clientAddress, setClientAddress] = useState('Client Address')
 
 
   return (
@@ -15,6 +17,9 @@ function App() {
       
         <p>{companyName}</p> 
         <p>{companyAddress}</p>
+
+        <p>{clientName}</p> 
+        <p>{clientAddress}</p>
      
     </div>
   );
