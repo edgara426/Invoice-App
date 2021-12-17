@@ -69,9 +69,13 @@ function App() {
           Edit Info
         </button>
         </div>
-      ): (
+      ):(
         <div>
           <h1>Edit section</h1>
+          <button 
+        onClick={()=> setInvoice(true)}>
+          Edit Info
+        </button>
         </div>
       )}
       </div>
