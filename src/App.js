@@ -1,6 +1,8 @@
-// import './App.css';
+import './index.css';
 import { useState } from 'react';
 import { Card, Container } from 'react-bootstrap';
+import Table from './components/Table';
+import TableForm from './components/TableForm';
 
 function App() {
 
@@ -37,6 +39,7 @@ function App() {
   const [description, setDescription] = useState('')
   const [price, setPrice] = useState('')
   const [amount, setAmount] = useState('')
+  const [quantity, setQuantity] = useState("")
   const [total, setTotal] = useState(0)
   const [list, setList] = useState([])
 
@@ -45,312 +48,254 @@ function App() {
   }  
   return (
     <> 
-    {/* <div className="m-5 p-5 md:max-w-xl md:mx-auto lg:max-w-2xl xl:max-w-4xl bg-white rounded shadow">
-    {invoice ? (
-
-        <div >
-          <section>
-        <h2>{companyName}</h2> 
-        <p>{companyAddress}</p>
-        <p>{companyEmail}</p>
-        <p>{companyPhone}</p>
-
-          </section>
-
-        <p >{clientName}</p> 
-        <p>{clientAddress}</p>
-
-
-        <p>{invoiceDate}</p>
-        <p>{invoiceNumber}</p>
-        <p>{sentDate}</p>
-
-
-        <p>{description}</p>
-        <p>{price}</p>
-        <p>{amount}</p>
-        <p>{total}</p>
-        <p>{list}</p>
-
-        <button 
-        onClick={()=> setInvoice(false)}>
-          Edit Info
-        </button>
-
-        <button 
-        onClick={handlePrint}>
-          Print
-        </button>
-        </div>
-      ):(
-        <div>
-          <h1>Edit section</h1>
-          <article>
-            <div>
-              <label>CompanyName</label>
-              <input
-                type="text"
-                name="text"
-                placeholder="CompanyName"
-                value={companyName}
-                onChange={(e) => setCompanyName(e.target.value)}
-              />
-            </div>
-
-            <div>
-              <label>CompanyAddress</label>
-              <input
-                type="text"
-                name="text"
-                placeholder="CompanyAddress"
-                value={companyAddress}
-                onChange={(e) => setCompanyAddress(e.target.value)}
-              />
-            </div>
-          </article>
-
-          <article>
-            <div>
-              <label>CompanyEmail</label>
-              <input
-                type="text"
-                name="text"
-                placeholder="CompanyEmail"
-                value={companyEmail}
-                onChange={(e) => setCompanyEmail(e.target.value)}
-              />
-            </div>
-
-            <div>
-              <label>CompanyPhone</label>
-              <input
-                type="text"
-                name="text"
-                placeholder="CompanyPhone"
-                value={companyPhone}
-                onChange={(e) => setCompanyPhone(e.target.value)}
-              />
-            </div>
-          </article>
-
-          <article>
-          
-          <div>
-              <label>ClientName</label>
-              <input
-                type="text"
-                name="text"
-                placeholder="clientName"
-                value={clientName}
-                onChange={(e) => setClientName(e.target.value)}
-              />
-            </div>
-
-            <div>
-              <label>ClientAddress</label>
-              <input
-                type="text"
-                name="text"
-                placeholder="clientAddress"
-                value={clientAddress}
-                onChange={(e) => setClientAddress(e.target.value)}
-              />
-            </div>
-          </article>
-
-          <article>
-          
-          <div>
-              <label>InvoiceNumber</label>
-              <input
-                type="text"
-                name="text"
-                placeholder="InvoiceNumber"
-                value={invoiceNumber}
-                onChange={(e) => setInvoiceNumber(e.target.value)}
-              />
-            </div>
-
-            <div>
-              <label>InvoiceDate</label>
-              <input
-                type="text"
-                name="text"
-                placeholder="invoiceDate"
-                value={invoiceDate}
-                onChange={(e) => setInvoiceDate(e.target.value)}
-              />
-            </div>
-            <div>
-              <label>SentDate</label>
-              <input
-                type="text"
-                name="text"
-                placeholder="sentDate"
-                value={sentDate}
-                onChange={(e) => setSentDate(e.target.value)}
-              />
-            </div>
-          </article>
-          <button 
-        onClick={()=> setInvoice(true)}>
-          Preview Invoice
-        </button>
-        </div>
-      )}
-      </div> */}
        <Container>
         <Card>
           <Card.Body>
-            <div id="invoice">
-              <div className="toolbar hidden-print">
-                <div className="text-end">
-                  <button type="button" className="dark">
-                    <i className="fa fa-print"></i> Print
-                  </button>
-                  <button type="button" className="danger">
-                    <i className="fa fa-file-pdf-o"></i> Export as PDF
-                  </button>
+            {invoice ? (
+
+              <div id="invoice">
+                <div className="toolbar hidden-print">
+                  <div className="text-end">
+                    <button type="button" className="dark">
+                      <i className="fa fa-print"></i> Print
+                    </button>
+                    <button type="button" className="danger">
+                      <i className="fa fa-file-pdf-o"></i> Export as PDF
+                    </button>
+                  </div>
+                  <hr />
                 </div>
-                <hr />
-              </div>
-              <div className="invoice overflow-auto">
-                <div style={{minWidth: 600}}>
-                  <header>
-                    <div className="row">
-                      <div className="col">
-                        <a href="javascript;">
-                          <img
-                            src="assets/images/logo-icon.png"
-                            width="80"
-                            alt=""
-                          />
-                        </a>
-                      </div>
-                      <div className="col company-details">
-                        <h2 className="name">
-                          <a target="_blank" href="javascript;">
-                            {companyName}
+                <div className="invoice overflow-auto">
+                  <div style={{minWidth: 600}}>
+                    <header>
+                      <div className="row">
+                        <div className="col">
+                          <a href="javascript;">
+                            <img
+                              src="assets/images/logo-icon.png"
+                              width="80"
+                              alt=""
+                            />
                           </a>
-                        </h2>
-                        <div>{companyAddress}</div>
-                        <div>{companyPhone}</div>
-                        <div>{companyEmail}</div>
-                      </div>
-                    </div>
-                  </header>
-                  <main>
-                    <div className="row contacts">
-                      <div className="col invoice-to">
-                        <div className="text-gray-light">INVOICE TO:</div>
-                        <h2 className="to">{clientName}</h2>
-                        <div className="address">
-                          {clientAddress}
+                        </div>
+                        <div className="col company-details">
+                          <h2 className="name">
+                            <a target="_blank" href="javascript;">
+                              {companyName}
+                            </a>
+                          </h2>
+                          <div>{companyAddress}</div>
+                          <div>{companyPhone}</div>
+                          <div>{companyEmail}</div>
                         </div>
                       </div>
-                      <div className="col invoice-details">
-                        <h1 className="invoice-id">{invoiceNumber}</h1>
-                        <div className="date">{invoiceDate}</div>
-                        <div className="date">{sentDate}</div>
+                    </header>
+                    <main>
+                      <div className="row contacts">
+                        <div className="col invoice-to">
+                          <div className="text-gray-light">INVOICE TO:</div>
+                          <h2 className="to">{clientName}</h2>
+                          <div className="address">
+                            {clientAddress}
+                          </div>
+                        </div>
+                        <div className="col invoice-details">
+                          <h1 className="invoice-id">{invoiceNumber}</h1>
+                          <div className="date">{invoiceDate}</div>
+                          <div className="date">{sentDate}</div>
+                        </div>
                       </div>
-                    </div>
-                    <table>
-                      <thead>
-                        <tr>
-                          <th>#</th>
-                          <th className="text-left">DESCRIPTION</th>
-                          <th className="text-right">HOUR PRICE</th>
-                          <th className="text-right">HOURS</th>
-                          <th className="text-right">TOTAL</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr>
-                          <td className="no">04</td>
-                          <td className="text-left">
-                            <h3>
-                              <a target="_blank" href="javascript;">
-                                Youtube channel
-                              </a>
-                            </h3>
-                            <a target="_blank" href="javascript;">
-                              Useful videos
-                            </a>{' '}
-                          </td>
-                          <td className="unit">$0.00</td>
-                          <td className="qty">100</td>
-                          <td className="total">$0.00</td>
-                        </tr>
-                        <tr>
-                          <td className="no">01</td>
-                          <td className="text-left">
-                            <h3>Website Design</h3>Creating a recognizable
-                            design solution based on the company's existing
-                            visual identity
-                          </td>
-                          <td className="unit">$40.00</td>
-                          <td className="qty">30</td>
-                          <td className="total">$1,200.00</td>
-                        </tr>
-                        <tr>
-                          <td className="no">02</td>
-                          <td className="text-left">
-                            <h3>Website Development</h3>Developing a Content
-                            Management System-based Website
-                          </td>
-                          <td className="unit">$40.00</td>
-                          <td className="qty">80</td>
-                          <td className="total">$3,200.00</td>
-                        </tr>
-                        <tr>
-                          <td className="no">03</td>
-                          <td className="text-left">
-                            <h3>Search Engines Optimization</h3>Optimize the
-                            site for search engines (SEO)
-                          </td>
-                          <td className="unit">$40.00</td>
-                          <td className="qty">20</td>
-                          <td className="total">$800.00</td>
-                        </tr>
-                      </tbody>
-                      <tfoot>
-                        <tr>
-                          <td colspan="2"></td>
-                          <td colspan="2">SUBTOTAL</td>
-                          <td>$5,200.00</td>
-                        </tr>
-                        <tr>
-                          <td colspan="2"></td>
-                          <td colspan="2">TAX 25%</td>
-                          <td>$1,300.00</td>
-                        </tr>
-                        <tr>
-                          <td colspan="2"></td>
-                          <td colspan="2">GRAND TOTAL</td>
-                          <td>$6,500.00</td>
-                        </tr>
-                      </tfoot>
-                    </table>
-                    <div className="thanks">Thank you!</div>
-                    <div className="notices">
-                      <div>NOTICE:</div>
-                      <div className="notice">
-                        A finance charge of 1.5% will be made on unpaid balances
-                        after 30 days.
+                      <Table 
+                      description={description}
+                      quantity={quantity}
+                      price={price}
+                      amount={amount}
+                      list={list}
+                      setList={setList}
+                      total={total}
+                      setTotal={setTotal}
+                    />
+                     
+                      {/* <div className="thanks">Thank you!</div> */}
+                      <div className="notices">
+                        <div>NOTICE:</div>
+                        <div className="notice">
+                          A finance charge of 1.5% will be made on unpaid balances
+                          after 30 days.
+                        </div>
                       </div>
-                    </div>
-                  </main>
-                  <footer>
-                    Invoice was created on a computer and is valid without the
-                    signature and seal.
-                  </footer>
+                    </main>
+                    <footer>
+                      Invoice was created on a computer and is valid without the
+                      signature and seal.
+                    </footer>
+                  </div>
+                  <button 
+        onClick={()=> setInvoice(false)}>
+          Edit Invoice
+        </button>
+                  <div></div>
                 </div>
-                <div></div>
               </div>
+            ):(
+              <>
+             <div className="flex flex-col justify-center">
+              <article className="md:grid grid-cols-2 gap-10">
+                <div className="flex flex-col">
+                  <label htmlFor="name">Your full name</label>
+                  <input
+                    type="text"
+                    name="text"
+                    id="name"
+                    placeholder="Enter your name"
+                    autoComplete="off"
+                    value={companyName}
+                    onChange={(e) => setCompanyName(e.target.value)}
+                  />
+                </div>
+
+                <div className="flex flex-col">
+                  <label htmlFor="address">Enter your address</label>
+                  <input
+                    type="text"
+                    name="address"
+                    id="address"
+                    placeholder="Enter your address"
+                    autoComplete="off"
+                    value={companyAddress}
+                    onChange={(e) => setCompanyAddress(e.target.value)}
+                  />
+                </div>
+              </article>
+
+              <article className="md:grid grid-cols-3 gap-10">
+                <div className="flex flex-col">
+                  <label htmlFor="email">Enter your email</label>
+                  <input
+                    type="email"
+                    name="email"
+                    id="email"
+                    placeholder="Enter your email"
+                    autoComplete="off"
+                    value={companyEmail}
+                    onChange={(e) => setCompanyEmail(e.target.value)}
+                  />
+                </div>
+
+                <div className="flex flex-col">
+                  <label htmlFor="phone">Enter your phone</label>
+                  <input
+                    type="text"
+                    name="phone"
+                    id="phone"
+                    placeholder="Enter your phone"
+                    autoComplete="off"
+                    value={companyPhone}
+                    onChange={(e) => setCompanyPhone(e.target.value)}
+                  />
+                </div>
+              </article>
+
+              <article className="md:grid grid-cols-2 gap-10 md:mt-16">
+                <div className="flex flex-col">
+                  <label htmlFor="clientName">Enter your client's name</label>
+                  <input
+                    type="text"
+                    name="clientName"
+                    id="clientName"
+                    placeholder="Enter your client's name"
+                    autoComplete="off"
+                    value={clientName}
+                    onChange={(e) => setClientName(e.target.value)}
+                  />
+                </div>
+
+                <div className="flex flex-col">
+                  <label htmlFor="clientAddress">
+                    Enter your client's address
+                  </label>
+                  <input
+                    type="text"
+                    name="clientAddress"
+                    id="clientAddress"
+                    placeholder="Enter your client's address"
+                    autoComplete="off"
+                    value={clientAddress}
+                    onChange={(e) => setClientAddress(e.target.value)}
+                  />
+                </div>
+              </article>
+
+              <article className="md:grid grid-cols-3 gap-10">
+                <div className="flex flex-col">
+                  <label htmlFor="invoiceNumber">Invoice Number</label>
+                  <input
+                    type="text"
+                    name="invoiceNumber"
+                    id="invoiceNumber"
+                    placeholder="Invoice Number"
+                    autoComplete="off"
+                    value={invoiceNumber}
+                    onChange={(e) => setInvoiceNumber(e.target.value)}
+                  />
+                </div>
+
+                <div className="flex flex-col">
+                  <label htmlFor="invoiceDate">Invoice Date</label>
+                  <input
+                    type="date"
+                    name="invoiceDate"
+                    id="invoiceDate"
+                    placeholder="Invoice Date"
+                    autoComplete="off"
+                    value={invoiceDate}
+                    onChange={(e) => setInvoiceDate(e.target.value)}
+                  />
+                </div>
+
+                <div className="flex flex-col">
+                  <label htmlFor="dueDate">Due Date</label>
+                  <input
+                    type="date"
+                    name="dueDate"
+                    id="dueDate"
+                    placeholder="Invoice Date"
+                    autoComplete="off"
+                    value={sentDate}
+                    onChange={(e) => setSentDate(e.target.value)}
+                  />
+                </div>
+              </article>
+
+              {/* This is our table form */}
+              <article>
+                <TableForm
+                  description={description}
+                  setDescription={setDescription}
+                  quantity={quantity}
+                  setQuantity={setQuantity}
+                  price={price}
+                  setPrice={setPrice}
+                  amount={amount}
+                  setAmount={setAmount}
+                  list={list}
+                  setList={setList}
+                  total={total}
+                  setTotal={setTotal}
+                />
+              </article>
+              <button
+                onClick={() => setInvoice(true)}
+
+              >
+                Preview Invoice
+              </button>
             </div>
-          </Card.Body>
-        </Card>
-      </Container>
+              </>
+              )}
+              </Card.Body>
+            </Card>
+          </Container>
     </> 
   );
 }
