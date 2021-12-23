@@ -1,6 +1,6 @@
 import './index.css';
 import { useState } from 'react';
-import { Card, Container } from 'react-bootstrap';
+import { Card, Container, Button } from 'react-bootstrap';
 import Table from './components/Table';
 import TableForm from './components/TableForm';
 
@@ -130,10 +130,7 @@ function App() {
                       signature and seal.
                     </footer>
                   </div>
-                  <button 
-        onClick={()=> setInvoice(false)}>
-          Edit Invoice
-        </button>
+                  <Button onClick={()=> setInvoice(false)} variant="primary">Edit Invoice</Button>{' '}
                   <div></div>
                 </div>
               </div>
@@ -284,12 +281,7 @@ function App() {
                   setTotal={setTotal}
                 />
               </article>
-              <button
-                onClick={() => setInvoice(true)}
-
-              >
-                Preview Invoice
-              </button>
+              <Button onClick={()=> setInvoice(true)} variant="primary">Preview Invoice</Button>{' '}
             </div>
               </>
               )}
